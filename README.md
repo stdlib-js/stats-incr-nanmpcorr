@@ -73,38 +73,32 @@ r = \frac{\displaystyle\sum_{i=0}^{n-1} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\d
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-incr-nanmpcorr
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-incrnanmpcorr = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-incr-nanmpcorr@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var incrnanmpcorr = require( 'path/to/vendor/umd/stats-incr-nanmpcorr/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-incr-nanmpcorr@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.incrnanmpcorr;
-})();
-</script>
+var incrnanmpcorr = require( '@stdlib/stats-incr-nanmpcorr' );
 ```
 
 #### incrnanmpcorr( window\[, mx, my] )
@@ -135,7 +129,7 @@ var r = accumulator();
 r = accumulator( 2.0, 1.0 ); // [(2.0, 1.0)]
 // returns 0.0
 
-r = accumulator( 2.0, NaN ); // [(2.0, 1.0)]
+r = accumulator( -2.0, NaN ); // [(2.0, 1.0)]
 // returns 0.0
 
 r = accumulator( -5.0, 3.14 ); // [(2.0, 1.0), (-5.0, 3.14)]
@@ -179,14 +173,9 @@ r = accumulator();
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-incr-nanmpcorr@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var randu = require( '@stdlib/random-base-randu' );
+var incrnanmpcorr = require( '@stdlib/stats-incr-nanmpcorr' );
 
 var accumulator;
 var x;
@@ -211,11 +200,6 @@ for ( i = 0; i < 100; i++ ) {
     accumulator( x, y );
 }
 console.log( accumulator() );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
